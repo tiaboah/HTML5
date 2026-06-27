@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Courses studied by Tiaboah Patience – BSc Cyber Security Level 100, UMaT">
+    <meta name="author" content="Tiaboah Patience">
+    <title>My Courses | Tiaboah Patience</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --teal: #0D5C63; --teal-dark: #083D42; --teal-light: #12848E;
+            --gold: #C9A84C; --gold-light: #E8C97A;
+            --cream: #F9F6EF; --white: #FFFFFF;
+            --text-dark: #1A1A2E; --text-mid: #444455;
+        }
+        body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--text-dark); }
+
+        header { background: var(--teal-dark); position: sticky; top: 0; z-index: 100; border-bottom: 3px solid var(--gold); }
+        header .inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; }
+        .logo { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1.5rem; font-weight: 700; padding: 1rem 0; letter-spacing: 1px; text-decoration: none; }
+        nav ul { list-style: none; display: flex; gap: 0.2rem; }
+        nav a { color: var(--white); text-decoration: none; font-size: 0.88rem; font-weight: 500; padding: 0.5rem 1rem; border-radius: 4px; transition: background 0.2s; text-transform: uppercase; }
+        nav a:hover, nav a.active { background: var(--gold); color: var(--teal-dark); }
+
+        .page-banner { background: linear-gradient(135deg, var(--teal-dark), var(--teal)); color: var(--white); padding: 3rem 2rem; border-bottom: 4px solid var(--gold); }
+        .page-banner .inner { max-width: 1100px; margin: 0 auto; }
+        .page-banner .breadcrumb { font-size: 0.8rem; color: var(--gold-light); margin-bottom: 0.5rem; }
+        .page-banner .breadcrumb a { color: var(--gold-light); text-decoration: none; }
+        .page-banner h1 { font-family: 'Playfair Display', serif; font-size: 2.5rem; }
+        .page-banner h1 span { color: var(--gold); }
+
+        section { padding: 4rem 2rem; }
+        .section-inner { max-width: 1100px; margin: 0 auto; }
+        .section-title { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--teal-dark); margin-bottom: 0.4rem; }
+        .section-title span { color: var(--gold); }
+        .title-rule { width: 50px; height: 3px; background: var(--gold); margin-bottom: 2rem; }
+
+        /* Summary Cards */
+        .summary-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 3rem; }
+        .sum-card { background: var(--teal); color: var(--white); border-radius: 8px; padding: 1.5rem; text-align: center; }
+        .sum-card .num { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--gold); font-weight: 900; }
+        .sum-card .label { font-size: 0.85rem; opacity: 0.85; margin-top: 0.3rem; }
+
+        /* Courses Table */
+        .courses-table-wrap { background: var(--white); border-radius: 8px; overflow: hidden; box-shadow: 0 2px 16px rgba(0,0,0,0.08); }
+        .courses-table { width: 100%; border-collapse: collapse; }
+        .courses-table thead tr { background: var(--teal-dark); }
+        .courses-table th { color: var(--gold); padding: 1rem 1.2rem; text-align: left; font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase; }
+        .courses-table td { padding: 0.9rem 1.2rem; border-bottom: 1px solid #eee; font-size: 0.95rem; vertical-align: middle; }
+        .courses-table tr:nth-child(even) td { background: var(--cream); }
+        .courses-table tr:hover td { background: #d9eff0; }
+        .course-code { font-family: monospace; background: var(--teal); color: var(--white); padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.85rem; }
+        .credit-badge { background: var(--gold); color: var(--teal-dark); padding: 0.2rem 0.7rem; border-radius: 20px; font-size: 0.8rem; font-weight: 700; }
+
+        /* Course Cards Grid */
+        .cards-section { background: var(--cream); }
+        .course-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+        .course-card { background: var(--white); border-radius: 8px; padding: 1.5rem; border-left: 5px solid var(--teal); box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .course-card .cc-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.8rem; }
+        .course-card h3 { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--teal-dark); }
+        .course-card p { font-size: 0.9rem; color: var(--text-mid); line-height: 1.6; }
+
+        /* Why I Love These */
+        .why-section { background: var(--teal-dark); color: var(--white); }
+        .why-section .section-title { color: var(--white); }
+        .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+        .why-block { background: rgba(255,255,255,0.07); border-radius: 8px; padding: 1.5rem; border-top: 3px solid var(--gold); }
+        .why-block h3 { color: var(--gold); margin-bottom: 0.8rem; font-size: 1rem; }
+        .why-block p { color: rgba(255,255,255,0.8); font-size: 0.9rem; line-height: 1.7; }
+
+        footer { background: var(--teal-dark); color: rgba(255,255,255,0.75); text-align: center; padding: 2rem; border-top: 3px solid var(--gold); }
+        footer strong { color: var(--gold); }
+        footer p { font-size: 0.85rem; margin: 0.3rem 0; }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="inner">
+        <a class="logo" href="index.html">TP &bull; Portfolio</a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="courses.html" class="active">Courses</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="page-banner">
+    <div class="inner">
+        <p class="breadcrumb"><a href="index.html">Home</a> &rsaquo; My Courses</p>
+        <h1>My <span>Courses</span></h1>
+    </div>
+</div>
+
+<main>
+
+    <!-- COURSES TABLE -->
+    <section style="background: var(--white); padding: 4rem 2rem;">
+        <div class="section-inner">
+            <h2 class="section-title">Academic <span>Registration</span></h2>
+            <div class="title-rule"></div>
+
+            <!-- Summary -->
+            <div class="summary-cards">
+                <div class="sum-card">
+                    <div class="num">8</div>
+                    <div class="label">Courses Enrolled</div>
+                </div>
+                <div class="sum-card">
+                    <div class="num">18</div>
+                    <div class="label">Total Credit Hours</div>
+                </div>
+                <div class="sum-card">
+                    <div class="num">100</div>
+                    <div class="label">Current Level</div>
+                </div>
+            </div>
+
+            <!-- Table -->
+            <div class="courses-table-wrap">
+                <table class="courses-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Course Code</th>
+                            <th>Course Name</th>
+                            <th>Credits</th>
+                            <th>Category</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td><span class="course-code">CY 162</span></td>
+                            <td>Object-Oriented Programming</td>
+                            <td><span class="credit-badge">2</span></td>
+                            <td>Core</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td><span class="course-code">CY 158</span></td>
+                            <td>Academic Writing</td>
+                            <td><span class="credit-badge">2</span></td>
+                            <td>General</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td><span class="course-code">CY 166</span></td>
+                            <td>Calculus</td>
+                            <td><span class="credit-badge">3</span></td>
+                            <td>Mathematics</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td><span class="course-code">CY 172</span></td>
+                            <td>Web Programming</td>
+                            <td><span class="credit-badge">2</span></td>
+                            <td>Core</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td><span class="course-code">CY 174</span></td>
+                            <td>Cloud Security Architecture and Operations</td>
+                            <td><span class="credit-badge">3</span></td>
+                            <td>Security</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td><span class="course-code">CY 164</span></td>
+                            <td>Data Communication and Networks</td>
+                            <td><span class="credit-badge">3</span></td>
+                            <td>Core</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td><span class="course-code">CY 170</span></td>
+                            <td>Database Systems</td>
+                            <td><span class="credit-badge">2</span></td>
+                            <td>Core</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td><span class="course-code">CY 142</span></td>
+                            <td>Basic French II</td>
+                            <td><span class="credit-badge">1</span></td>
+                            <td>General</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- COURSE CARDS -->
+    <section class="cards-section">
+        <div class="section-inner">
+            <h2 class="section-title">Course <span>Highlights</span></h2>
+            <div class="title-rule"></div>
+            <div class="course-cards">
+                <article class="course-card">
+                    <div class="cc-header">
+                        <h3>Object-Oriented Programming</h3>
+                        <span class="course-code">CY 162</span>
+                    </div>
+                    <p>Introduction to OOP concepts including classes, objects, inheritance, and polymorphism. Builds a strong programming foundation essential for software development in security applications.</p>
+                </article>
+                <article class="course-card">
+                    <div class="cc-header">
+                        <h3>Web Programming</h3>
+                        <span class="course-code">CY 172</span>
+                    </div>
+                    <p>Covers the fundamentals of building web applications using HTML5, CSS, and related technologies. This very website is a product of skills gained from this course!</p>
+                </article>
+                <article class="course-card">
+                    <div class="cc-header">
+                        <h3>Cloud Security Architecture</h3>
+                        <span class="course-code">CY 174</span>
+                    </div>
+                    <p>An in-depth look at securing cloud environments, understanding cloud architecture models, and applying best practices for cloud operations security.</p>
+                </article>
+                <article class="course-card">
+                    <div class="cc-header">
+                        <h3>Data Communication and Networks</h3>
+                        <span class="course-code">CY 164</span>
+                    </div>
+                    <p>Explores how data is transmitted across networks, covering protocols, topologies, and the underlying infrastructure that connects the modern digital world.</p>
+                </article>
+                <article class="course-card">
+                    <div class="cc-header">
+                        <h3>Database Systems</h3>
+                        <span class="course-code">CY 170</span>
+                    </div>
+                    <p>Introduces relational database design, SQL, and data management principles. Understanding databases is critical for securing data in any organization.</p>
+                </article>
+                <article class="course-card">
+                    <div class="cc-header">
+                        <h3>Calculus</h3>
+                        <span class="course-code">CY 166</span>
+                    </div>
+                    <p>Mathematical foundations covering differentiation, integration, and analytical reasoning — essential for cryptography and algorithmic thinking in security.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY I LOVE THESE -->
+    <section class="why-section">
+        <div class="section-inner">
+            <h2 class="section-title">Why These <span>Courses Matter</span></h2>
+            <div class="title-rule"></div>
+            <div class="why-grid">
+                <div class="why-block">
+                    <h3>🔐 Building Security Expertise</h3>
+                    <p>Courses like Cloud Security Architecture and Data Communication directly equip me with the knowledge needed to protect modern digital infrastructure against cyber threats.</p>
+                </div>
+                <div class="why-block">
+                    <h3>💻 Technical Foundation</h3>
+                    <p>OOP, Database Systems, and Web Programming give me the programming and systems knowledge that every security professional needs to understand what they are protecting.</p>
+                </div>
+                <div class="why-block">
+                    <h3>🌍 Communication & Language</h3>
+                    <p>Academic Writing and Basic French II round out my education — helping me communicate technical concepts clearly and expanding my reach in the global tech community.</p>
+                </div>
+                <div class="why-block">
+                    <h3>🧠 Analytical Thinking</h3>
+                    <p>Calculus sharpens my logical and analytical reasoning, which is fundamental to understanding encryption, algorithms, and problem-solving in cyber security.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <p><strong>Tiaboah Patience</strong> &nbsp;|&nbsp; Student ID: FCM.41.018.165.25</p>
+    <p>&copy; 2025 Tiaboah Patience. All rights reserved. &nbsp;|&nbsp; BSc Cyber Security, UMaT</p>
+</footer>
+
+</body>
+</html>
